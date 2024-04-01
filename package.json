@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "test": "ospec",
+    "test1": "TEST_TARGET_DIR=src ospec 'tests/task1.spec.js'",
+    "test2": "TEST_TARGET_DIR=src ospec 'tests/task2.spec.js'"
+  },
+  "devDependencies": {
+    "ospec": "4.1.7"
+  }
+}
