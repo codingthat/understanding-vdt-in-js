@@ -18,5 +18,4 @@ My Recipe
 Ingredients (for 1 serving):
 
 ${ingredientList}
-`
-);
+`);

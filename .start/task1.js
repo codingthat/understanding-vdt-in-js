@@ -9,5 +9,4 @@ My Recipe
 Ingredients (for 1 serving):
 
 - ${ingredientQuantity} ${ingredientName}
-`
-);
+`);
