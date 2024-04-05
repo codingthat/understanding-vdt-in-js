@@ -3,14 +3,12 @@
 // write all your code above this line
 
 let ingredientList = '';
-for (let ingredientNamesArray = new Array(ingredientNames),
-         ingredientQuantitiesArray = new Array(ingredientQuantities),
+for (let ingredientNamesArray = Array.from(ingredientNames),
+         ingredientQuantitiesArray = Array.from(ingredientQuantities),
          i = 0; i < ingredientNamesArray.length; i++) {
-    ingredientList += '- '
-        + ingredientQuantitiesArray[i]
-        + ' '
-        + ingredientNamesArray[i]
-        + '\n';
+    let ingredientName = ingredientNamesArray[i];
+    let ingredientQuantity = ingredientQuantitiesArray[i];
+    ingredientList += `- ${ingredientQuantity} ${ingredientName}\n`;
 }
 
 console.log(`

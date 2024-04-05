@@ -4,11 +4,9 @@
 
 let ingredientList = '';
 for (let i = 0; i < ingredientNames.length; i++) {
-    ingredientList += '- '
-        + ingredientQuantities[i]
-        + ' '
-        + ingredientNames[i]
-        + '\n';
+    let ingredientName = ingredientNames[i];
+    let ingredientQuantity = ingredientQuantities[i];
+    ingredientList += `- ${ingredientQuantity} ${ingredientName}\n`;
 }
 
 console.log(`
