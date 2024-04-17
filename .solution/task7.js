@@ -6,7 +6,7 @@ let ingredients = new Map([
 for (let [ingredientName, ingredientQuantityObject] of ingredients) {
     ingredients.set(ingredientName, {
         quantity: ingredientQuantityObject.quantity * 3,
-        unitOfMeasurement: ingredientQuantityObject.unitOfMeasurement
+        unitOfMeasurement: ingredientQuantityObject.unitOfMeasurement,
     });
 }
 

@@ -8,7 +8,7 @@ function multipliedRecipe(servingCount, ingredientsForOneServing) {
     for (let [ingredientName, ingredientQuantityObject] of ingredientsForOneServing) {
         ingredientsForXServings.set(ingredientName, {
             quantity: ingredientQuantityObject.quantity * servingCount,
-            unitOfMeasurement: ingredientQuantityObject.unitOfMeasurement
+            unitOfMeasurement: ingredientQuantityObject.unitOfMeasurement,
         });
     }
     return {
