@@ -1,5 +1,4 @@
 
-
 // write all your code above this line
 
 function displayRecipe(recipe) {
