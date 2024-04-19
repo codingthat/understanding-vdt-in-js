@@ -3,7 +3,13 @@
     "test": "ospec",
     "test1": "TEST_TARGET_DIR=src ospec 'tests/task1.spec.js'",
     "test2": "TEST_TARGET_DIR=src ospec 'tests/task2.spec.js'",
-    "test3": "TEST_TARGET_DIR=src ospec 'tests/task3.spec.js'"
+    "test3": "TEST_TARGET_DIR=src ospec 'tests/task3.spec.js'",
+    "test4": "TEST_TARGET_DIR=src ospec 'tests/task4.spec.js'",
+    "test5": "TEST_TARGET_DIR=src ospec 'tests/task5.spec.js'",
+    "test6": "TEST_TARGET_DIR=src ospec 'tests/task6.spec.js'",
+    "test7": "TEST_TARGET_DIR=src ospec 'tests/task7.spec.js'",
+    "test8": "TEST_TARGET_DIR=src ospec 'tests/task8.spec.js'",
+    "test9": "TEST_TARGET_DIR=src ospec 'tests/task9.spec.js'"
   },
   "devDependencies": {
     "ospec": "4.1.7"
