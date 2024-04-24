@@ -1,4 +1,6 @@
-let ingredients = new Map([
+let templates = require('../.output-templates');
+
+let ingredientsMap = new Map([
     ["water", { quantity: 1, unitOfMeasurement: "cup(s)"}],
     ["lemon juice concentrate", { quantity: 1.5, unitOfMeasurement: "tbsp"}],
 ]);
@@ -11,33 +13,9 @@ function multipliedRecipe(servingCount, ingredientsForOneServing) {
             unitOfMeasurement: ingredientQuantityObject.unitOfMeasurement,
         });
     }
-    return {
-        ingredients: ingredientsForXServings,
-        servingCount,
-    };
+    return { servingCount, ingredientsForXServings };
 }
 
-let recipeForThree = multipliedRecipe(3, ingredients);
+let recipeForThree = multipliedRecipe(3, ingredientsMap);
 
-displayRecipe(recipeForThree);
-
-// write all your code above this line
-
-function displayRecipe(recipe) {
-    let ingredientList = '';
-    for (let [ingredientName, ingredientQuantityObject] of recipe.ingredients) {
-        let ingredientQuantity = `${ingredientQuantityObject.quantity} ${ingredientQuantityObject.unitOfMeasurement}`;
-        ingredientList += `- ${ingredientQuantity} ${ingredientName}\n`;    
-    }
-    
-    let maybePlural = (recipe.servingCount === 1) ? '' : 's';
-    console.log(`
-My Recipe
----------
-
-Ingredients (for ${recipe.servingCount} serving${maybePlural}):
-
-${ingredientList}
-`
-    );
-}
+templates.displayRecipeObject(recipeForThree);

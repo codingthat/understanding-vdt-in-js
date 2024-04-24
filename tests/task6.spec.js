@@ -3,8 +3,23 @@ var o = require('ospec')
 
 o.spec('first map declaration with objects as values', function() {
     let taskName = require('path').basename(__filename, '.spec.js'),
-        code = require('../.test-common')(taskName)
-    o('ingredients map with object values is declared (exactly once)', function() {
-        o(code.match(/\s*let\s+ingredients\s*=\s*new\s+Map\s*\(\s*\[\s*\[\s*"water"\s*,\s*{\s*quantity\s*:\s*1\s*,\s*unitOfMeasurement\s*:\s*"cup\s*\(\s*s\s*\)\s*"\s*}\s*\]\s*,\s*\[\s*"lemon juice concentrate"\s*,\s*{\s*quantity\s*:\s*1\.5\s*,\s*unitOfMeasurement\s*:\s*"tbsp"\s*}\s*\]\s*,\s*\]\s*\)\s*;\s*$/m)?.length).equals(1)
+        { code, templates } = require('../.test-common')(taskName)
+    eval(code)
+    let spy = templates.displayIngredientsMap;
+    o('variable declared with let', function() {
+        o(code.match(/\s*let\s+\S+\s*=\s*new\s+Map\s*\(\s*\[\s*\[/m)?.length).equals(1)
+    })
+    o('correct display function called exactly once', function() {
+        o(spy.callCount).equals(1)
+    })
+    o('correct display function called with exactly one parameter', function() {
+        o(spy.calls[0]?.args.length).equals(1)
+    })
+    o('correct parameter passed', function() {
+        o(spy.calls[0]?.args[0].constructor.name).equals('Map')
+        o(Array.from(spy.calls[0]?.args[0])).deepEquals([
+            ["water", { quantity: 1, unitOfMeasurement: "cup(s)"}],
+            ["lemon juice concentrate", { quantity: 1.5, unitOfMeasurement: "tbsp"}],
+        ])
     })
 })

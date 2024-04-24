@@ -3,11 +3,20 @@ var o = require('ospec')
 
 o.spec('first variable declarations', function() {
     let taskName = require('path').basename(__filename, '.spec.js'),
-        code = require('../.test-common')(taskName)
-    o('name variable is declared (exactly once)', function() {
-        o(code.match(/\s*let\s+ingredientName\s*=\s*"water"\s*;\s*$/m)?.length).equals(1)
+        { code, templates } = require('../.test-common')(taskName)
+    eval(code)
+    let spy = templates.displayFirstIngredient;
+    o('variables declared with let', function() {
+        var letCount = code.match(/\s*let\s+\S+\s*=\s*["'`]/m)?.length
+        o(letCount === 1 || letCount === 2).equals(true)
     })
-    o('quantity variable is declared (exactly once)', function() {
-        o(code.match(/\s*let\s+ingredientQuantity\s*=\s*"1 cup"\s*;\s*$/m)?.length).equals(1)
+    o('correct display function called exactly once', function() {
+        o(spy.callCount).equals(1)
+    })
+    o('correct display function called with exactly two parameters', function() {
+        o(spy.calls[0]?.args.length).equals(2)
+    })
+    o('correct parameters passed', function() {
+        o(spy.calls[0]?.args).deepEquals(["water", "1 cup"])
     })
 })
