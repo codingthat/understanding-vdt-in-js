@@ -6,7 +6,7 @@ var o = require('ospec'),
 module.exports = function getCode(taskName) {
     let start = "let templates = require('../.output-templates');\n",
         filename = process.env.TEST_TARGET_DIR
-            ? `${process.env.TEST_TARGET_DIR}/${taskName.match('[0-9]+')[1]*1 > 5 ? 'build' : 'research'}.js`
+            ? `${process.env.TEST_TARGET_DIR}/main.js`
             : `solutions/${taskName}.js`,
         code = fs.readFileSync(`${__dirname}/${filename}`).toString()
     o('code is written below require line as required (original code is left untouched)', function checkStart() {
