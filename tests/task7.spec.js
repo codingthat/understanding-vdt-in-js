@@ -10,7 +10,7 @@ o.spec('tripling the ingredients', function() {
         o(code.match(/\s*let\s+\S+\s*=\s*new\s+Map\s*\(\s*\[\s*\[/m)?.length).equals(1)
     })
     o('for loop is declared (exactly once) and contains exactly one set() call that replaces objects', function() {
-        o(code.match(/\s*for\s+\(\s*let\s+\[\s*\S+\s*,\s*\S+\s*\]\s*of\s+\S+\s*\)\s*{\s*\S+\.set\s*\(\s*\S+\s*,\s*{/m)?.length).equals(1)
+        o(code.match(/\s*for\s+\(\s*let\s+\[\s*\S+\s*,\s*[^\]]+\s*\]\s*of\s+\S+\s*\)\s*{\s*\S+\.set\s*\(\s*\S+\s*,\s*{/m)?.length).equals(1)
     })
     o('correct display function called exactly once', function() {
         o(spy.callCount).equals(1)

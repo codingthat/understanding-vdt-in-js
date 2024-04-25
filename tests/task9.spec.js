@@ -11,7 +11,7 @@ o.spec('wrapper function declaration', function() {
         o(code.match(/\s*function\s+\S+\s*\(\s*\S+\s*,\s*\S+\s*\)\s*{\s*let\s+\S+\s*=\s*new\s+Map\s*\(\s*\)\s*;\s*$/m)?.length).equals(1)
     })
     o('for loop is declared (exactly once) and contains exactly one set() call that replaces objects', function() {
-        o(code.match(/\s*for\s+\(\s*let\s+\[\s*\S+\s*,\s*\S+\s*\]\s*of\s+\S+\s*\)\s*{\s*\S+\.set\s*\(\s*\S+\s*,\s*{/m)?.length).equals(1)
+        o(code.match(/\s*for\s+\(\s*let\s+\[\s*\S+\s*,\s*[^\]]+\s*\]\s*of\s+\S+\s*\)\s*{\s*\S+\.set\s*\(\s*\S+\s*,\s*{/m)?.length).equals(1)
     })
     o('return statement happens inside the function (exactly once)', function() {
         o(code.match(/\s*function\s+\S+\s*\(\s*\S+\s*,\s*\S+\s*\)\s*{.*return\s*{\s*/ms)?.length).equals(1)
