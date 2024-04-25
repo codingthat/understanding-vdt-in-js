@@ -53,11 +53,6 @@ ${ingredientList}
         this.displayIngredientList(ingredientList, servingCount);
     },
     displayRecipeObject(recipe) {
-        let ingredientList = '';
-        for (let [ingredientName, ingredientQuantityObject] of recipe.ingredientsForXServings) {
-            let ingredientQuantity = `${ingredientQuantityObject.quantity} ${ingredientQuantityObject.unitOfMeasurement}`;
-            ingredientList += this.formatIngredient(ingredientName, ingredientQuantity);    
-        }
-        this.displayIngredientList(ingredientList, recipe.servingCount);
+        this.displayIngredientsMap(recipe.ingredientsForXServings, recipe.servingCount);
     },
 }
