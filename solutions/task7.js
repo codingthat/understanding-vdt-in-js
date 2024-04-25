@@ -12,4 +12,30 @@ for (let [ingredientName, ingredientQuantityObject] of ingredientsMap) {
     });
 }
 
+// or using intermediate variables:
+/*
+
+for (let [ingredientName, ingredientQuantityObject] of ingredientsMap) {
+    let newQuantity = ingredientQuantityObject.quantity * 3,
+        unitOfMeasurement = ingredientQuantityObject.unitOfMeasurement; 
+    ingredientsMap.set(ingredientName, {
+        quantity: newQuantity,
+        unitOfMeasurement: unitOfMeasurement,
+    });
+}
+
+*/
+
+// or using both array _and_ object destructuring:
+/*
+
+for (let [ingredientName, {quantity, unitOfMeasurement}] of ingredientsMap) {
+    ingredientsMap.set(ingredientName, {
+        quantity: quantity * 3,
+        unitOfMeasurement: unitOfMeasurement,
+    });
+}
+
+*/
+
 templates.displayIngredientsMap(ingredientsMap, 3);
